@@ -1,0 +1,133 @@
+﻿  cone.cpp
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: class vtkAlgorithmOutput * __thiscall vtkAlgorithm::GetOutputPort(void)" (__imp_?GetOutputPort@vtkAlgorithm@@QAEPAVvtkAlgorithmOutput@@XZ)，该符号在函数 _main 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __thiscall vtkDebugLeaksManager::vtkDebugLeaksManager(void)" (__imp_??0vtkDebugLeaksManager@@QAE@XZ)，该符号在函数 "void __cdecl `dynamic initializer for 'vtkDebugLeaksManagerInstance''(void)" (??__EvtkDebugLeaksManagerInstance@@YAXXZ) 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __thiscall vtkDebugLeaksManager::~vtkDebugLeaksManager(void)" (__imp_??1vtkDebugLeaksManager@@QAE@XZ)，该符号在函数 "void __cdecl `dynamic atexit destructor for 'vtkDebugLeaksManagerInstance''(void)" (??__FvtkDebugLeaksManagerInstance@@YAXXZ) 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __thiscall vtkObjectFactoryRegistryCleanup::vtkObjectFactoryRegistryCleanup(void)" (__imp_??0vtkObjectFactoryRegistryCleanup@@QAE@XZ)，该符号在函数 "void __cdecl `dynamic initializer for 'vtkObjectFactoryRegistryCleanupInstance''(void)" (??__EvtkObjectFactoryRegistryCleanupInstance@@YAXXZ) 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __thiscall vtkObjectFactoryRegistryCleanup::~vtkObjectFactoryRegistryCleanup(void)" (__imp_??1vtkObjectFactoryRegistryCleanup@@QAE@XZ)，该符号在函数 "void __cdecl `dynamic atexit destructor for 'vtkObjectFactoryRegistryCleanupInstance''(void)" (??__FvtkObjectFactoryRegistryCleanupInstance@@YAXXZ) 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static class vtkConeSource * __cdecl vtkConeSource::New(void)" (__imp_?New@vtkConeSource@@SAPAV1@XZ)，该符号在函数 _main 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static class vtkPolyDataMapper * __cdecl vtkPolyDataMapper::New(void)" (__imp_?New@vtkPolyDataMapper@@SAPAV1@XZ)，该符号在函数 _main 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static class vtkRenderWindow * __cdecl vtkRenderWindow::New(void)" (__imp_?New@vtkRenderWindow@@SAPAV1@XZ)，该符号在函数 _main 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: void __thiscall vtkCamera::Azimuth(double)" (__imp_?Azimuth@vtkCamera@@QAEXN@Z)，该符号在函数 _main 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static class vtkActor * __cdecl vtkActor::New(void)" (__imp_?New@vtkActor@@SAPAV1@XZ)，该符号在函数 _main 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static class vtkRenderer * __cdecl vtkRenderer::New(void)" (__imp_?New@vtkRenderer@@SAPAV1@XZ)，该符号在函数 _main 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: void __thiscall vtkRenderer::AddActor(class vtkProp *)" (__imp_?AddActor@vtkRenderer@@QAEXPAVvtkProp@@@Z)，该符号在函数 _main 中被引用
+cone.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: class vtkCamera * __thiscall vtkRenderer::GetActiveCamera(void)" (__imp_?GetActiveCamera@vtkRenderer@@QAEPAVvtkCamera@@XZ)，该符号在函数 _main 中被引用
+G:\SEGY\third\VTK\lib\vtkalglib-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkChartsCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonColor-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonComputationalGeometry-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonDataModel-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonExecutionModel-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonMath-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonMisc-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonSystem-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkCommonTransforms-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkDICOMParser-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkDomainsChemistry-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkDomainsChemistryOpenGL2-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkexoIIc-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkexpat-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersAMR-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersExtraction-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersFlowPaths-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersGeneral-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersGeneric-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersGeometry-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersHybrid-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersHyperTree-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersImaging-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersModeling-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersParallel-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersParallelImaging-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersPoints-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersProgrammable-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersSelection-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersSMP-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersSources-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersStatistics-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersTexture-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersTopology-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkFiltersVerdict-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkfreetype-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkGeovisCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkgl2ps-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkglew-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkGUISupportQt-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkhdf5-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkhdf5_hl-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingColor-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingFourier-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingGeneral-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingHybrid-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingMath-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingMorphological-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingSources-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingStatistics-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkImagingStencil-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkInfovisCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkInfovisLayout-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkInteractionImage-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkInteractionStyle-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkInteractionWidgets-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOAMR-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOEnSight-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOExodus-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOExport-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOExportOpenGL2-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOGeometry-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOImage-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOImport-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOInfovis-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOLegacy-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOLSDyna-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOMINC-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOMovie-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIONetCDF-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOParallel-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOParallelXML-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOPLY-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOSQL-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOTecplotTable-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOVideo-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOXML-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkIOXMLParser-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkjpeg-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkjsoncpp-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtklibharu-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtklibxml2-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtklz4-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkmetaio-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkNetCDF-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtknetcdfcpp-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkoggtheora-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkParallelCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkpng-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkproj4-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingAnnotation-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingContext2D-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingContextOpenGL2-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingFreeType-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingGL2PSOpenGL2-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingImage-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingLabel-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingLOD-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingOpenGL2-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingVolume-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkRenderingVolumeOpenGL2-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtksqlite-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtksys-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkTestingGenericBridge-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkTestingIOSQL-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkTestingRendering-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtktiff-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkverdict-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkViewsContext2D-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkViewsCore-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkViewsInfovis-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\third\VTK\lib\vtkzlib-8.1.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+G:\SEGY\test\vtk_test_cone_s1\vtk_test_cone_s1\Debug\vtk_test_cone_s1.exe : fatal error LNK1120: 13 个无法解析的外部命令

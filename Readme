@@ -1,0 +1,431 @@
+Introduction:
+    This a simple vtk tutorial for newbies.
+This tutorial includes 7 projects which have been tested in VS2017.
+Of course, it is assumed that VTK is installed and the library path are
+configured correctly. I install X64-version of VTK-8.1.
+    The first six tutorial is based the official tutorial.
+The last tutorial is also constructed followed by the user manual.
+    The is Readme pick up important points.
+
+Refers:
+    https://www2.cs.uic.edu/~jbell/CS526/Tutorial/Sources.html
+    https://gitlab.kitware.com/vtk/vtk/tree/master/Examples
+    https://gitlab.kitware.com/vtk/vtk/tree/master/Examples/Tutorial
+
+Tutorial:
+    + basic pipeline,
+        source->mapper->actor->renderer->renderwindow.
+    + basic headers,
+        #include"vtkConeSource.h"  //different for different source
+        #include"vtkPolyDataMapper.h"
+        #include"vtkActor.h"
+        #include"vtkRender.h"
+        #include"vtkRenderWindow.h"
+        #include"vtkCamera.h"
+        #include "vtkAutoInit.h"
+        VTK_MODULE_INIT(vtkRenderingOpenGL2)
+        VTK_MODULE_INIT(vtkRenderingFreeType)
+        VTK_MODULE_INIT(vtkInteractionStyle)
+
+        . The last four lines are necessary, alghough these four lines 
+    does not appear in official tutorial.
+        . The camera provide view window through which we see the
+    rendered result.
+
+    + minimum codes,
+--------------------------------------------------------------------------------
+        // source
+        vtkConeSource *cone = vtkConeSource::New();
+        cone->SetHeight(3.0);
+        cone->SetRadius(1.0);
+        cone->SetResolution(10);
+        //mapper
+        vtkPolyDataMapper *coneMapper = vtkPolyDataMapper::New();
+        coneMapper->SetInputConnection(cone->GetOutputPort());
+        //actor
+        vtkActor *coneActor = vtkActor::New();
+        coneActor->SetMapper(coneMapper);
+        //render
+        vtkRenderer *ren1 = vtkRenderer::New();
+        ren1->AddActor(coneActor);
+        ren1->SetBackground(0.1, 0.2, 0.4);
+        //render window
+        vtkRenderWindow *renWin = vtkRenderWindow::New();
+        renWin->AddRenderer(ren1);
+        renWin->SetSize(300, 300);
+        //view it from camernt i;
+        for (i = 0; i < 360; ++i)
+        {
+            // render the image
+            renWin->Render();
+            // rotate the active camera by
+            // one degree
+            ren1->GetActiveCamera()->Azimuth(1);
+        }
+        //release resources
+        cone->Delete();
+        coneMapper->Delete();
+        coneActor->Delete();
+        ren1->Delete();
+        renWin->Delete();
+--------------------------------------------------------------------------------
+
+    + add callback for render
+--------------------------------------------------------------------------------
+        #include<vtkCommands.h"
+        class vtkMyCallback : public vtkCommand
+        {
+        public:
+                static vtkMyCallback *New()
+                {
+                        return new vtkMyCallback;
+                }
+                void Execute(vtkObject *caller, unsigned long, void*) override
+                {
+                        vtkRenderer *renderer = reinterpret_cast<vtkRenderer*>(caller);
+                        cout << renderer->GetActiveCamera()->GetPosition()[0] << " "
+                                << renderer->GetActiveCamera()->GetPosition()[1] << " "
+                                << renderer->GetActiveCamera()->GetPosition()[2] << "\n";
+                }
+        };
+
+        vtkMyCallback *mo1 = vtkMyCallback::New();
+	ren1->AddObserver(vtkCommand::StartEvent, mo1);
+	mo1->Delete();
+--------------------------------------------------------------------------------
+
+    + two renders with different viewpoints:
+--------------------------------------------------------------------------------
+        vtkRenderer *ren1 = vtkRenderer::New();
+	ren1->AddActor(coneActor);
+	ren1->SetBackground(0.1, 0.2, 0.4);
+	ren1->SetViewport(0.0, 0.0, 0.5, 1.0);
+	ren1->ResetCamera();
+	ren1->GetActiveCamera()->Azimuth(180);
+
+	vtkRenderer *ren2 = vtkRenderer::New();
+	ren2->AddActor(coneActor);
+	ren2->SetBackground(0.2, 0.3, 0.5);
+	ren2->SetViewport(0.5, 0.0, 1.0, 1.0);
+
+	vtkRenderWindow *renWin = vtkRenderWindow::New();
+	renWin->AddRenderer(ren1);
+	renWin->AddRenderer(ren2);
+	renWin->SetSize(600, 300);
+
+        for (i = 0; i < 360; ++i)
+        {
+            // render the image
+            renWin->Render();
+            // rotate the active camera by
+            // one degree
+            ren1->GetActiveCamera()->Azimuth(1);
+        }
+--------------------------------------------------------------------------------
+
+    + two actors with different properties
+--------------------------------------------------------------------------------
+        #include"vtkProperty.h"
+        vtkActor *coneActor = vtkActor::New();
+	coneActor->SetMapper(coneMapper);
+	coneActor->GetProperty()->SetColor(0.2, 0.63, 0.79);
+	coneActor->GetProperty()->SetDiffuse(0.7);
+	coneActor->GetProperty()->SetSpecular(0.4);
+	coneActor->GetProperty()->SetSpecularPower(20);
+	vtkProperty *property = vtkProperty::New();
+	vtkActor *coneActor2 = vtkActor::New();
+	coneActor2->SetMapper(coneMapper);
+	coneActor2->SetProperty(property);
+	coneActor2->SetPosition(0, 2, 0);
+	property->SetColor(1.0, 0.3882, 0.2784);
+	property->SetDiffuse(0.7);
+	vtkRenderer *ren1 = vtkRenderer::New();
+	ren1->AddActor(coneActor);
+	ren1->AddActor(coneActor2);
+	ren1->SetBackground(0.1, 0.2, 0.4);
+	property->SetSpecular(0.4);
+	property->SetSpecularPower(20);
+--------------------------------------------------------------------------------
+
+    + interactors instead of limited camera 
+--------------------------------------------------------------------------------
+        #include "vtkRenderWindowInteractor.h"
+        vtkRenderWindowInteractor *iren = 
+            vtkRenderWindowInteractor::New();
+        iren->SetRenderWindow(renWin);
+	iren->Initialize();
+	iren->Start();
+	iren.Delete();
+--------------------------------------------------------------------------------
+
+    + interactors with different interaction, more control
+--------------------------------------------------------------------------------
+        #include "vtkRenderWindowInteractor.h"
+        #include "vtkInteractorStyleTrackballCamera.h"
+        vtkRenderWindowInteractor *iren = 
+            vtkRenderWindowInteractor::New();
+        iren->SetRenderWindow(renWin);
+        vtkInteractorStyleTrackballCamera *style =
+            vtkInteractorStyleTrackballCamera::New();
+        iren->SetInteractorStyle(style);
+        iren->Initialize();
+        iren->Start();
+        iren->Delete();
+        style->Delete();
+--------------------------------------------------------------------------------
+
+    + 3D widget
+--------------------------------------------------------------------------------
+        #include "vtkBoxWidget.h"
+        #include "vtkTransform.h"
+        class vtkMyCallback : public vtkCommand
+        {
+        public:
+            static vtkMyCallback *New()
+            {
+                    return new vtkMyCallback;
+            }
+            void Execute(vtkObject *caller, unsigned long, void*) override
+            {
+                vtkTransform *t = vtkTransform::New();
+                vtkBoxWidget *widget = reinterpret_cast<vtkBoxWidget*>(caller);
+                widget->GetTransform(t);
+                widget->GetProp3D()->SetUserTransform(t);
+                t->Delete();
+            }
+        };
+        vtkBoxWidget *boxWidget = vtkBoxWidget::New();
+        boxWidget->SetInteractor(iren);
+        boxWidget->SetPlaceFactor(1.25);
+        boxWidget->SetProp3D(coneActor);
+        boxWidget->PlaceWidget();
+        vtkMyCallback *callback = vtkMyCallback::New();
+        boxWidget->AddObserver(vtkCommand::InteractionEvent, callback);
+        //
+        // Normally the user presses the "i" key to bring a 3D widget to life. Here
+        // we will manually enable it so it appears with the cone.
+        //
+        boxWidget->On();
+--------------------------------------------------------------------------------
+    + embed vtk into Winform created by Win32 API
+        NOTE: C++ variable has its life period, important of following 
+            .  static VTKCone *theVTKApp; 
+                   static make cone stays, you can also make a global one.
+            .  pipelines as members to VTKCone object 
+            .  start render by,
+                    renWin->Render();
+             instead of ordinary message loop
+
+        . create window by APIs
+--------------------------------------------------------------------------------
+        #include<windows.h>
+        #include"vtk_test.h"
+
+        static HANDLE hinst;
+        LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+
+        int PASCAL WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
+                            LPSTR /* lpszCmdParam */, int nCmdShow)
+        {
+          static char szAppName[] = "Win32Cone";
+          HWND        hwnd ;
+          MSG         msg ;
+          WNDCLASS    wndclass ;
+
+          if (!hPrevInstance)
+          {
+            wndclass.style         = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
+            wndclass.lpfnWndProc   = WndProc ;
+            wndclass.cbClsExtra    = 0 ;
+            wndclass.cbWndExtra    = 0 ;
+            wndclass.hInstance     = hInstance;
+            wndclass.hIcon         = LoadIcon(nullptr,IDI_APPLICATION);
+            wndclass.hCursor       = LoadCursor (nullptr, IDC_ARROW);
+            wndclass.lpszMenuName  = nullptr;
+            wndclass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+            wndclass.lpszClassName = szAppName;
+            RegisterClass (&wndclass);
+          }
+
+          hinst = hInstance;
+          hwnd = CreateWindow ( szAppName,
+                                "Draw Window",
+                                WS_OVERLAPPEDWINDOW,
+                                CW_USEDEFAULT,
+                                CW_USEDEFAULT,
+                                400,
+                                480,
+                                nullptr,
+                                nullptr,
+                                hInstance,
+                                nullptr);
+          ShowWindow (hwnd, nCmdShow);
+          UpdateWindow (hwnd);
+          while (GetMessage (&msg, nullptr, 0, 0))
+          {
+            TranslateMessage (&msg);
+            DispatchMessage (&msg);
+          }
+          return msg.wParam;
+        }
+
+        LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+        {
+          static HWND ewin;
+          static VTKCone *theVTKApp;
+
+          switch (message)
+          {
+            case WM_CREATE:
+            {
+              ewin = CreateWindow("button","Exit",
+                                  WS_CHILD | WS_VISIBLE | SS_CENTER,
+                                  0,400,400,60,
+                                  hwnd,(HMENU)2,
+                                  (HINSTANCE)vtkGetWindowLong(hwnd,vtkGWL_HINSTANCE),
+                                  nullptr);
+              theVTKApp = new VTKCone(hwnd);
+              return 0;
+            }
+
+            case WM_COMMAND:
+              switch (wParam)
+              {
+                case 2:
+                  PostQuitMessage (0);
+                  delete theVTKApp;
+                  theVTKApp = nullptr;
+                  break;
+              }
+              return 0;
+
+            case WM_DESTROY:
+              PostQuitMessage (0);
+              delete theVTKApp;
+              theVTKApp = nullptr;
+              return 0;
+          }
+          return DefWindowProc (hwnd, message, wParam, lParam);
+        }
+--------------------------------------------------------------------------------
+        . vtk pipe class
+        // vtk_test.h
+--------------------------------------------------------------------------------
+            #pragma once
+            #include<windows.h>
+            #include "vtkConeSource.h"
+            #include "vtkPolyDataMapper.h"
+            #include "vtkActor.h"
+            #include "vtkRenderer.h"
+            #include "vtkRenderWindow.h"
+            #include "vtkCamera.h"
+            #include "vtkCommand.h"
+            #include "vtkRenderWindowInteractor.h"
+            #include "vtkInteractorStyleTrackballCamera.h"
+            #include "vtkBoxWidget.h"
+            #include "vtkTransform.h"
+
+            #include "vtkAutoInit.h"
+            VTK_MODULE_INIT(vtkRenderingOpenGL2);
+            VTK_MODULE_INIT(vtkRenderingFreeType);
+            VTK_MODULE_INIT(vtkInteractionStyle);
+
+            class vtkMyCallback : public vtkCommand
+            {
+            public:
+                    static vtkMyCallback *New()
+                    {
+                            return new vtkMyCallback;
+                    }
+                    void Execute(vtkObject *caller, unsigned long, void*) override
+                    {
+                            vtkTransform *t = vtkTransform::New();
+                            vtkBoxWidget *widget = reinterpret_cast<vtkBoxWidget*>(caller);
+                            widget->GetTransform(t);
+                            widget->GetProp3D()->SetUserTransform(t);
+                            t->Delete();
+                    }
+            };
+
+            class VTKCone
+            {
+            private:
+                    vtkConeSource *cone;
+                    vtkPolyDataMapper *coneMapper;
+                    vtkActor *coneActor;
+                    vtkRenderer *ren1;
+                    vtkRenderWindow *renWin;
+                    vtkRenderWindowInteractor *iren;
+                    vtkInteractorStyleTrackballCamera *style;
+                    vtkBoxWidget *boxWidget;
+                    vtkMyCallback *callback;
+            public:
+                    VTKCone(HWND hwnd);
+                    ~VTKCone();
+            private:
+            };
+--------------------------------------------------------------------------------
+        .vtk_test class
+--------------------------------------------------------------------------------
+            #include"vtk_test.h"
+            VTKCone::VTKCone(HWND hwnd)
+            {
+                    cone = vtkConeSource::New();
+                    cone->SetHeight(3.0);
+                    cone->SetRadius(1.0);
+                    cone->SetResolution(10);
+
+                    coneMapper = vtkPolyDataMapper::New();
+                    coneMapper->SetInputConnection(cone->GetOutputPort());
+
+                    coneActor = vtkActor::New();
+                    coneActor->SetMapper(coneMapper);
+
+                    ren1 = vtkRenderer::New();
+                    ren1->AddActor(coneActor);
+                    ren1->SetBackground(0.1, 0.2, 0.4);
+
+                    renWin = vtkRenderWindow::New();
+                    renWin->AddRenderer(ren1);
+                    renWin->SetSize(400, 400);
+                    
+                    // ---------------- import --------------
+                    renWin->SetParentId(hwnd);
+
+                    iren = vtkRenderWindowInteractor::New();
+                    iren->SetRenderWindow(renWin);
+                    style = vtkInteractorStyleTrackballCamera::New();
+                    iren->SetInteractorStyle(style);
+
+                    boxWidget = vtkBoxWidget::New();
+                    boxWidget->SetInteractor(iren);
+                    boxWidget->SetPlaceFactor(1.25);
+                    boxWidget->SetProp3D(coneActor);
+                    boxWidget->PlaceWidget();
+                    callback = vtkMyCallback::New();
+                    boxWidget->AddObserver(vtkCommand::InteractionEvent, callback);
+                    boxWidget->On();
+                    renWin->Render();
+            }
+            VTKCone::~VTKCone()
+            {
+                    if(cone)
+                            cone->Delete();
+                    if(coneMapper)
+                            coneMapper->Delete();
+                    if (coneActor)
+                            coneActor->Delete();
+                    if (callback)
+                            callback->Delete();
+                    if (boxWidget)
+                            boxWidget->Delete();
+                    if (ren1)
+                            ren1->Delete();
+                    if (renWin)
+                            renWin->Delete();
+                    if (iren)
+                            iren->Delete();
+                    if (style)
+                            style->Delete();
+            }
+--------------------------------------------------------------------------------
