@@ -3,8 +3,9 @@ Introduction:
 This tutorial includes 7 projects which have been tested in VS2017.
 Of course, it is assumed that VTK is installed and the library path are
 configured correctly. I install X64-version of VTK-8.1.
-    The first six tutorial is based the official tutorial.
-The last tutorial is also constructed followed by the user manual.
+    The first six tutorial is based the official tutorial in
+Examples/Tutorial subdirectory, the last tutorial can be found
+in the User Manual or Example/GUI subdirectory.
     The is Readme pick up important points.
 
 Refers:
@@ -214,7 +215,7 @@ Tutorial:
             .  pipelines as members to VTKCone object 
             .  start render by,
                     renWin->Render();
-             instead of ordinary message loop
+             instead of ordinary message loop pumped by VTKInteractor
 
         . create window by APIs
 --------------------------------------------------------------------------------
